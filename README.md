@@ -2,7 +2,7 @@
 
 this script colorizes ghci output.
 
-![screenshot](cap.jpg)
+![screenshot](http://s1-04.twitpicproxy.com/photos/full/598630589.jpg?key=570415)
 
 - initial message
 - fundamental operator `+` `-` `*` `/`
