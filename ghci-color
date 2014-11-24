@@ -1,12 +1,12 @@
 #!/usr/bin/env sh
 
-GREEN=`echo '\033[92m'`
-RED=`echo '\033[91m'`
-CYAN=`echo '\033[96m'`
-BLUE=`echo '\033[94m'`
-YELLOW=`echo '\033[93m'`
-PURPLE=`echo '\033[95m'`
-RESET=`echo '\033[0m'`
+GREEN=`echo -e '\033[92m'`
+RED=`echo -e '\033[91m'`
+CYAN=`echo -e '\033[96m'`
+BLUE=`echo -e '\033[94m'`
+YELLOW=`echo -e '\033[93m'`
+PURPLE=`echo -e '\033[95m'`
+RESET=`echo -e '\033[0m'`
 
 load_failed="s/^Failed, modules loaded:/$RED&$RESET/;"
 load_done="s/done./$GREEN&$RESET/g;"
