@@ -14,6 +14,7 @@ double_colon="s/::/$PURPLE&$RESET/g;"
 right_arrow="s/\->/$PURPLE&$RESET/g;"
 right_arrow2="s/=>/$PURPLE&$RESET/g;"
 calc_operators="s/[+\-\/*]/$PURPLE&$RESET/g;"
+char="s/'\\?.'/$RED&$RESET/g;"
 string="s/\"[^\"]*\"/$RED&$RESET/g;"
 parenthesis="s/[{}()]/$BLUE&$RESET/g;"
 left_blacket="s/\[\([^09]\)/$BLUE[$RESET\1/g;"
@@ -34,4 +35,5 @@ exec "`which ghc`" --interactive ${1+"$@"} 2>&1 |\
          $right_blacket\
          $double_colon\
          $calc_operators\
-         $string"
+         $string\
+         $char"
