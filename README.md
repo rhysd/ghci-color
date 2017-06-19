@@ -1,4 +1,4 @@
-#Colorize GHCi
+# Colorize GHCi
 
 this script colorizes ghci output.
 
@@ -11,18 +11,18 @@ this script colorizes ghci output.
 - arrow operator `->` `=>`
 
 
-#Requirement
+# Requirement
 
 - sed (stream editor)
 
 this command is often pre-installed in \*nix OS system.
 
 
-#Installation
+# Installation
 
 put ghci-color script in $PATH directory and use ghci-color command instead of ghci.
 
-#LICENSE
+# LICENSE
 
 ## The MIT License
 
