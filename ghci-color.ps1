@@ -17,7 +17,7 @@ $right_arrow = "s/\->/$PURPLE&$RESET/g;"
 $right_arrow2 = "s/=>/$PURPLE&$RESET/g;"
 $calc_operators = "s/[+\-\/*]/$PURPLE&$RESET/g;"
 $char = "s/'``\?.'/$RED&$RESET/g;"
-# $string="s/`"[^`"]*`"/$RED&$RESET/g;"
+$string="s/`"[^\`"]*`"/$CYAN&$RESET/g;"
 $parenthesis = "s/[{}()]/$BLUE&$RESET/g;"
 $left_bracket = "s/\[\([^09]\)/$BLUE[$RESET\1/g;"
 $right_bracket = "s/\]/$BLUE&$RESET/g;"
@@ -37,5 +37,5 @@ Invoke-Expression (Get-Command ghci).Path @args 2>&1 | `
          $right_bracket `
          $double_colon `
          $calc_operators `
-         s/`"[^\`"]*`"/$CYAN&$RESET/g; `
+         $string `
          $char" 
