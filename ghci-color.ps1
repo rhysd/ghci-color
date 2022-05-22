@@ -1,41 +1,44 @@
 #!/usr/bin/env powershell
 
-Write-Output "`e[91m ---`e[1;35m ghci-colour`e[91m cannot print infinite sequences ---`e[0m"
+Write-Output "$([char]0x1b)[91m ---$([char]0x1b)[1;35m ghci-colour$([char]0x1b)[91m cannot print infinite sequences ---$([char]0x1b)[0m"
 
-$GREEN = $(Write-Output "`e[92m") 
-$RED = $(Write-Output "`e[91m") 
-$CYAN = $(Write-Output "`e[96m") 
-$BLUE = $(Write-Output "`e[94m") 
-$YELLOW = $(Write-Output "`e[93m") 
-$PURPLE = $(Write-Output "`e[95m") 
-$RESET = $(Write-Output "`e[0m") 
+$GREEN = "$([char]0x1b)[92m"
+$RED = "$([char]0x1b)[91m"
+$CYAN = "$([char]0x1b)[96m"
+$BLUE = "$([char]0x1b)[94m" 
+$YELLOW = "$([char]0x1b)[93m" 
+$PURPLE = "$([char]0x1b)[95m" 
+$RESET = "$([char]0x1b)[0m"
 
-$load_failed = "s/^Failed, modules loaded:/$RED&$RESET/;"
-$load_done = "s/done./$GREEN&$RESET/g;"
-$double_colon = "s/::/$PURPLE&$RESET/g;"
-$right_arrow = "s/\->/$PURPLE&$RESET/g;"
-$right_arrow2 = "s/=>/$PURPLE&$RESET/g;"
-$calc_operators = "s/[+\-\/*]/$PURPLE&$RESET/g;"
-$char = "s/'``\?.'/$RED&$RESET/g;"
-$string="s/`"[^\`"]*`"/$CYAN&$RESET/g;"
-$parenthesis = "s/[{}()]/$BLUE&$RESET/g;"
-$left_bracket = "s/\[\([^09]\)/$BLUE[$RESET\1/g;"
-$right_bracket = "s/\]/$BLUE&$RESET/g;"
-$no_instance = "s/^\s*No instance/$RED&$RESET/g;"
-$interactive = "s/^<[^>]*>/$RED&$RESET/g;"
+<#
+$load_failed = '^Failed, modules loaded:'
+$load_done = 'done.'
+$double_colon = '::'
+$right_arrow = '\->'
+$right_arrow2 = '=>'
+$calc_operators = '[+\-\/*]'
+$char = '``\?.'
+$string='`"[^\`"]*`"'
+$parenthesis = '[{}()]'
+$left_bracket = '\[\([^09]\)'
+$right_bracket = '\]'
+$no_instance = '^\s*No instance'
+$interactive = '^<[^>]*>'
+#>
 
 Invoke-Expression (Get-Command ghci).Path @args 2>&1 | `
-    sed "$load_failed `
-         $load_done `
-         $no_instance `
-         $interactive `
-         $double_colon `
-         $right_arrow `
-         $right_arrow2 `
-         $parenthesis `
-         $left_bracket `
-         $right_bracket `
-         $double_colon `
-         $calc_operators `
-         $string `
-         $char" 
+    % {$_ `
+        -replace '^Failed, modules loaded:', "$RED`$0$RESET" `
+        -replace 'done.', "$GREEN`$0$RESET" `
+        -replace '::', "$PURPLE`$0$RESET" `
+        -replace '\->', "$PURPLE`$0$RESET" `
+        -replace '=>', "$PURPLE`$0$RESET" `
+        -replace '[+-/*]', "$PURPLE`$0$RESET" `
+        -replace "'\\?.'", "$RED`$0$RESET" `
+        -replace '"[^"]*"', "$CYAN`$0$RESET" `
+        -replace '[{}()]', "$BLUE`$0$RESET" `
+        -replace '\[(.*?)\]', "$BLUE`[$RESET`$1]" `
+        -replace '\]', "$BLUE`$0$RESET" `
+        -replace '^\s*No instance', "$RED`$0$RESET" `
+        -replace '^<[^>]*>', "$RED`$0$RESET" `
+    }
