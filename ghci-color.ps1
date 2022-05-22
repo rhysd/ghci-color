@@ -1,6 +1,6 @@
 #!/usr/bin/env powershell
 
-Write-Output "$([char]0x1b)[91m ---$([char]0x1b)[1;35m ghci-colour$([char]0x1b)[91m cannot print infinite sequences ---$([char]0x1b)[0m"
+Write-Output "$([char]0x1b)[91m ---$([char]0x1b)[1;35m ghci-color$([char]0x1b)[91m cannot print infinite sequences ---$([char]0x1b)[0m"
 
 $GREEN = "$([char]0x1b)[92m"
 $RED = "$([char]0x1b)[91m"
@@ -24,7 +24,7 @@ $right_bracket = '\]'
 $no_instance = '^\s*No instance'
 $interactive = '^<[^>]*>'
 
-Invoke-Expression (Get-Command ghci).Path @args 2>&1 | `
+Invoke-Expression (Get-Command ghci).Path @args | `
     % {$_ `
         -replace $load_failed, "$RED`$0$RESET" `
         -replace $load_done, "$GREEN`$0$RESET" `
