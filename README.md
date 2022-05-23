@@ -11,17 +11,41 @@ this script colorizes ghci output.
 - arrow operator `->` `=>`
 
 
-# Requirement
+# Requirements
 
-- sed (stream editor)
-
-this command is often pre-installed in \*nix OS system.
-
+- sed (stream editor) or PowerShell
 
 # Installation
 
-put ghci-color script in $PATH directory and use ghci-color command instead of ghci.
+Clone the repository to local machine:
 
+```
+git clone https://github.com/rhysd/ghci-color.git
+```
+
+Use `cd` to navigate to local repository: 
+
+```
+cd <path of directory>
+```
+
+Put ghci-color file in $PATH directory:
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - **PowerShell**
+
+```
+mv ghci-color.ps1 <$PATH directory>
+```
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - **zsh/BASH/tcsh/csh/sh***
+
+```
+mv ghci-color <$PATH directory>
+```
+
+Run `ghci-color` instead of ghci.
+<br>
+<br>
 # LICENSE
 
 ## The MIT License
