@@ -42,6 +42,7 @@ mv ghci-color.ps1 <$PATH directory>
 mv ghci-color <$PATH directory>
 ```
 <br>
+
 Run `ghci-color` instead of ghci.
 <br>
 <br>
