@@ -30,22 +30,19 @@ cd <path of directory>
 ```
 
 Put ghci-color file in $PATH directory:
-<br><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - **PowerShell**
+
+ - **PowerShell**
 
 ```
 mv ghci-color.ps1 <$PATH directory>
 ```
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - **zsh/BASH/tcsh/csh/sh**
+ - **zsh/BASH/tcsh/csh/sh**
 
 ```
 mv ghci-color <$PATH directory>
 ```
-<br>
-
 Run `ghci-color` instead of ghci.
-<br>
-<br>
+
 # LICENSE
 
 ## The MIT License
