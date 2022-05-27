@@ -10,12 +10,11 @@ this script colorizes ghci output.
 - double colon operator `::`
 - arrow operator `->` `=>`
 
+## Requirements
 
-# Requirements
+sed (stream editor) or PowerShell
 
-- sed (stream editor) or PowerShell
-
-# Installation
+## Installation
 
 Clone the repository to local machine:
 
@@ -23,29 +22,16 @@ Clone the repository to local machine:
 git clone https://github.com/rhysd/ghci-color.git
 ```
 
-Use `cd` to navigate to local repository: 
+Put a script file in $PATH directory:
 
-```
-cd <path of directory>
-```
+- [ghci-color](./ghci-color) for Bash
+- [ghci-color.ps1](./ghci-color.ps1) for PowerShell
 
-Put ghci-color file in $PATH directory:
-
- - **PowerShell**
-
-```
-mv ghci-color.ps1 <$PATH directory>
-```
- - **zsh/BASH/tcsh/csh/sh**
-
-```
-mv ghci-color <$PATH directory>
-```
 Run `ghci-color` instead of ghci.
 
-# LICENSE
+## License
 
-## The MIT License
+This repository is distributed under the MIT license.
 
     Copyright (c) 2012 rhysd
 
